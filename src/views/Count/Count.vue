@@ -34,18 +34,15 @@ export default {
     const store = useStore();
 
     const value = computed(() => count.value * 2);
+    const number = computed(() => store.state.CountStore.num * 3);
 
-    const number = computed(() => store.state.CountStore.num * count.value);
-
-    console.log("store =", store.state.CountStore);
+    console.log("store =");
 
     const inc = () => count.value++;
     const dec = () => count.value--;
 
     const handleClick = () => {
-      if (this.onClick) {
-        this.onClick();
-      }
+      store.dispatch('CountStore/addCount');
     };
     return {
       count,
