@@ -13,15 +13,26 @@
         rel="noopener noreferrer"
       >{{ message }}</a>
     </header>
+    <Count size="large" :onClick="handleClick"/>
   </div>
 </template>
 
 <script>
+import Count from 'views/Count/Count';
+
 export default {
+  components: {
+    Count
+  },
   data() {
     return {
       message: "Learn Vue"
     };
+  },
+  methods: {
+    handleClick() {
+      console.log('it clicked');
+    }
   }
 };
 </script>
