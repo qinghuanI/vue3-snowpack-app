@@ -230,5 +230,6 @@ module.exports = {
         "stroke",
       ],
     ],
+    "no-empty-source": null,
   },
 };

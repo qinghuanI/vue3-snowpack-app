@@ -2,7 +2,7 @@
   <div class="count">
     <p>次数: {{ count }} ---> {{ value }} ---> {{ number }}</p>
     <span>{{ size }}</span>
-    <button @click="inc">++</button>
+    <button @click="inc">++rtrgr</button>
     <button @click="dec">--</button>
     <button @click="handleClick">点击开始</button>
 
@@ -16,6 +16,7 @@
 import { ref, onMounted, computed, reactive } from "vue";
 import { noop } from "lodash-es";
 import { useStore } from "vuex";
+
 import "./style.scss";
 
 export default {
