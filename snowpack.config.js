@@ -9,5 +9,6 @@ module.exports = {
     views: resolve('src/views'),
     stores: resolve('src/stores'),
     routes: resolve('src/routes'),
+    scss: resolve('src/scss')
   },
 };

@@ -5,15 +5,16 @@
     <button @click="inc">++</button>
     <button @click="dec">--</button>
     <button @click="handleClick">点击开始</button>
+
+    <ul>
+      <li v-for="(t, i) in teachers" :key="i">{{ t }}</li>
+    </ul>
   </div>
 </template>
 
-<script>
-import { ref, onMounted, computed } from "vue";
-// import { noop, isFunction } from 'lodash';
-// import noop from '../../../node_modules/lodash/noop';
-// import isFunction from '../../../node_modules/lodash/isFunction';
-// import each from '../node_modules/lodash-es/each.js'
+<script scoped>
+import { ref, onMounted, computed, reactive } from "vue";
+import { noop } from "lodash-es";
 import { useStore } from "vuex";
 import "./style.scss";
 
@@ -26,13 +27,16 @@ export default {
     },
     onClick: {
       type: Function,
-      default: () => {},
+      default: noop,
     },
   },
   setup() {
     const count = ref(0);
     const store = useStore();
 
+    const teachers = reactive(["Li", "W"]);
+
+    console.log(teachers);
     const value = computed(() => count.value * 2);
     const number = computed(() => store.state.CountStore.num * 3);
 
@@ -42,7 +46,7 @@ export default {
     const dec = () => count.value--;
 
     const handleClick = () => {
-      store.dispatch('CountStore/addCount');
+      store.dispatch("CountStore/addCount");
     };
     return {
       count,
@@ -51,6 +55,7 @@ export default {
       value,
       handleClick,
       number,
+      teachers,
     };
   },
   onMounted() {

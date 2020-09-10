@@ -15,4 +15,5 @@ const routes = [
     component: Count,
   },
 ];
+
 export default routes;
