@@ -7,5 +7,7 @@ module.exports = {
   plugins: ['snowpack-plugin-sass', '@snowpack/plugin-postcss'],
   alias: {
     views: resolve('src/views'),
+    stores: resolve('src/stores'),
+    routes: resolve('src/routes'),
   },
 };

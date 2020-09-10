@@ -1,8 +1,7 @@
 <template>
   <div class="count">
-
-    <p>次数: {{count}} ---> {{value}}</p>
-    <span>{{size}}</span>
+    <p>次数: {{ count }} ---> {{ value }} ---> {{ number }}</p>
+    <span>{{ size }}</span>
     <button @click="inc">++</button>
     <button @click="dec">--</button>
     <button @click="handleClick">点击开始</button>
@@ -10,53 +9,57 @@
 </template>
 
 <script>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed } from "vue";
 // import { noop, isFunction } from 'lodash';
 // import noop from '../../../node_modules/lodash/noop';
 // import isFunction from '../../../node_modules/lodash/isFunction';
 // import each from '../node_modules/lodash-es/each.js'
-import './style.scss';
+import { useStore } from "vuex";
+import "./style.scss";
 
 export default {
-  name: 'Count',
+  name: "Count",
   props: {
     size: {
       type: String,
-      default: ''
+      default: "",
     },
     onClick: {
       type: Function,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   setup() {
     const count = ref(0);
+    const store = useStore();
 
     const value = computed(() => count.value * 2);
 
+    const number = computed(() => store.state.CountStore.num * count.value);
+
+    console.log("store =", store.state.CountStore);
+
     const inc = () => count.value++;
     const dec = () => count.value--;
+
+    const handleClick = () => {
+      if (this.onClick) {
+        this.onClick();
+      }
+    };
     return {
       count,
       inc,
       dec,
-      value
-    }
-  },
-
-  methods: {
-    handleClick() {
-      if(this.onClick) {
-        this.onClick();
-      }
-    }
+      value,
+      handleClick,
+      number,
+    };
   },
   onMounted() {
     // http request
-  }
-}
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

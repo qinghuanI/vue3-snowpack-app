@@ -1,39 +1,26 @@
 <template>
   <div class="App">
-    <header class="App-header">
-      <img src="/logo.svg" class="App-logo" alt="logo" />
-      <p>
-        Edit
-        <code>src/App.vue</code> and save to reload.
-      </p>
-      <a
-        class="App-link"
-        href="https://vuejs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >{{ message }}</a>
-    </header>
-    <Count size="large" :onClick="handleClick"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Count from 'views/Count/Count';
+// import Count from 'views/Count/Count';
 
 export default {
   components: {
-    Count
+    // Count
   },
   data() {
     return {
-      message: "Learn Vue"
+      message: "Learn Vue",
     };
   },
   methods: {
     handleClick() {
-      console.log('it clicked');
-    }
-  }
+      console.log("it clicked");
+    },
+  },
 };
 </script>
 
