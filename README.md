@@ -1,26 +1,20 @@
-# New Project
+# Vue3 snowpack app
+A simple Vue3 Application practice which routes to different pages on user interaction, made from scratch using Snowpack.
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+## How to use
 
-## Available Scripts
+1. Clone the repo
 
-### npm start
+```sh
+git clone https://github.com/qinghuanI/vue3-snowpack-app.git
+# or
+git clone https://github.com.cnpmjs.org/qinghuanI/vue3-snowpack-app.git
+```
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+2. `npm i` to install all npm packages
+3. Use `npm run start` to start dev server with in the browser
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+## npm script
 
-### npm test
-
-**⚠️ NOTE:** Vue 3 testing support is still in progress. This template does not ship with a test runner.
-
-### npm run build
-
-Builds the app for production to the `build/` folder.
-It correctly bundles Vue in production mode and optimizes the build for the best performance.
-
-### Q: What about Eject?
-
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+- `npm run start`- start development server
+- `npm run build`- build project to production
